@@ -1,0 +1,31 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div id="navbar">
+    <ul>
+        <li class="order"><a href="#">HOME</a></li>
+        <li class="order"><a href="#">CONTENTS</a></li>
+        <li class="order"><a href="#">ABOUT ME!</a></li>
+    </ul>
+    <img src="{% static 'top.jpg' %}" id="photoID">
+</div>
+{% if posts %}
+{% for post in posts %}
+<div class="container">
+    <img src="{{ post.url_field }}" alt="Some shitty photo" id="art-img">
+    <span id="title"><span>{{ post.title }}</span></span>
+
+
+</div>
+{% endfor %}
+{% else %}
+<h3>Sorry no posts here!</h3>
+{% endif %}
+
+</body>
+</html>

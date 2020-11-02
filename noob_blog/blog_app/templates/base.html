@@ -1,0 +1,53 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div id="navbar">
+    <ul>
+        <li class="order"><a href="#">HOME</a></li>
+        <li class="order"><a href="#">CONTENTS</a></li>
+        <li class="order"><a href="#">ABOUT ME!</a></li>
+    </ul>
+    <img src="{% static 'top.jpg' %}" id="photoID">
+</div>
+<div id="content">
+    <div id="last-content" class="some-content">
+        <img src="{{ last_post.url_field }}" id="postPhoto">
+        <p><a href="#">{{ last_post.title }}</a></p>
+    </div>
+    <div id="right-menu-bar" class="some-content">
+        {% if posts %}
+        <ol>
+            {% for post in posts %}
+                <li class="titles"><a href="#">{{ post.title }}</a></li>
+            {% endfor %}
+        </ol>
+        {% else %}
+        <p>No more posts</p>
+        {% endif %}
+    </div>
+</div>
+<footer>That's my noobish blog design</footer>
+<script>
+
+    let menuBar = document.getElementsByTagName('ol')[0];
+    console.log(menuBar.children);
+    if (menuBar.children.length > 9) {
+        for (let x = 8;x < menuBar.children.length;x++) {
+            menuBar.children[x].style.display = 'none';
+        }
+        let homepage = "homepage";
+        let pElem = document.createElement('a');
+        pElem.innerHTML = "Show More"
+        pElem.href ="{% url 'article' %}"
+        let wholeDiv = document.getElementById('right-menu-bar');
+        wholeDiv.appendChild(pElem);
+    }
+
+</script>
+</body>
+</html>
