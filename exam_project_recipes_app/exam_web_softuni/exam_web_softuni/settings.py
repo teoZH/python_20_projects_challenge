@@ -82,13 +82,13 @@ DATABASES = {
 
         'NAME': 'exam',
 
-        'USER': 'postgres',
+        'USER': 'user',
 
-        'PASSWORD': 'qwerty',
+        'PASSWORD': 'passs',
 
-        'HOST': '127.0.0.1',
+        'HOST': 'host_ip',
 
-        'PORT': '5432',
+        'PORT': 'port',
 
     }
 
