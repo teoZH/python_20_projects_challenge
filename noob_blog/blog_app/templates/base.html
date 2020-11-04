@@ -8,16 +8,15 @@
 <body>
 <div id="navbar">
     <ul>
-        <li class="order"><a href="#">HOME</a></li>
-        <li class="order"><a href="#">CONTENTS</a></li>
-        <li class="order"><a href="#">ABOUT ME!</a></li>
+        <li class="order"><a href="{% url 'homepage' %}">HOME</a></li>
+        <li class="order"><a href="{% url 'article'%}">CONTENTS</a></li>
     </ul>
     <img src="{% static 'top.jpg' %}" id="photoID">
 </div>
 <div id="content">
     <div id="last-content" class="some-content">
         <img src="{{ last_post.url_field }}" id="postPhoto">
-        <p><a href="#">{{ last_post.title }}</a></p>
+        <p><a href="{% url 'details' last_post.id last_post.slug %}">{{ last_post.title }}</a></p>
     </div>
     <div id="right-menu-bar" class="some-content">
         {% if posts %}
@@ -44,6 +43,7 @@
         let pElem = document.createElement('a');
         pElem.innerHTML = "Show More"
         pElem.href ="{% url 'article' %}"
+        pElem.setAttribute('id','moreStuff')
         let wholeDiv = document.getElementById('right-menu-bar');
         wholeDiv.appendChild(pElem);
     }

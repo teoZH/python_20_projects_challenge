@@ -28,7 +28,6 @@
 
 
 .some-content {
-    text-align: center;
     display: inline-block;
 }
 
@@ -43,7 +42,7 @@
 
 #right-menu-bar {
     position: absolute;
-    top: 100%;
+    top: 65%;
     right: 10%;
     width: 24%;
     background-color: yellow;
@@ -56,11 +55,18 @@
     object-fit: contain;
 }
 
+#moreStuff {
+    margin-left:130px;
+    margin-bottom: 100px;
+}
+
 .titles a {
     text-decoration: none
 }
 
 footer {
+  position: fixed;
+  bottom: 0;
   width: 100%;
   margin-top: 15px;
   padding: 10px;
@@ -68,18 +74,46 @@ footer {
   text-align: center
 }
 
-.container #art-img,#title {
-    margin-bottom: 10px;
-    border: 1px solid red;
-    height: 100px;
-    text-align: center;
-    white-space: nowrap;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
 }
 
-#title {
-    display: inline-block;
-    vertical-align:middle;
+td {
+    border: 1px solid black;
 }
+
+.first {
+    width: 20%;
+}
+
+.second {
+    width: 80%;
+    padding: 30px;
+}
+
+.art-img {
+    margin: 30px;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+#detailsImage {
+    width: 200px;
+    height: 200px;
+}
+
+#article #detailsImage,#text-container {
+    float: left;
+    margin: 30px;
+    margin-bottom:100px;
+}
+
+
+
+
 
 
 

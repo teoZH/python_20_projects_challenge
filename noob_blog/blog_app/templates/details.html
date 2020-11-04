@@ -13,19 +13,13 @@
     </ul>
     <img src="{% static 'top.jpg' %}" id="photoID">
 </div>
-{% if posts %}
-<table>
-{% for post in posts %}
-<tr>
-    <td class="first"><img src="{{ post.url_field }}" alt="Some shitty photo" class="art-img"></td>
-    <td class="second"><a href="{% url 'details' post.id post.slug %}">{{ post.title }}</a></td>
-</tr>
-{% endfor %}
-</table>
 
-{% else %}
-<h3>Sorry no posts here!</h3>
-{% endif %}
+<div id="article">
+    <img src="{{ post.url_field }}" id="detailsImage"><div id="text-container">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.post_info }}</p>
+    </div>
+</div>
 <footer>That's my noobish blog design</footer>
 </body>
 </html>

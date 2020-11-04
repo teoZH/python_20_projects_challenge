@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from blog_app.models import Post
 from django.http import HttpResponse
 
@@ -14,14 +14,18 @@ def homepage(request):
             'posts': posts[1:],
             'last_post': posts[0]
         }
-    return render(request, 'base.html',context)
+    return render(request, 'base.html', context)
 
 
 def articles(request):
     context = {}
     posts = Post.objects.all()
     context = {
-        'posts':posts
+        'posts': posts
     }
-    return render(request,'article.html',context)
+    return render(request, 'article.html', context)
 
+
+def details(request, art_id, slug):
+    post = get_object_or_404(Post, pk=art_id)
+    return render(request, 'details.html', {'post': post})
