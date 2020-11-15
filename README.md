@@ -11,5 +11,5 @@ I challenge myself to make a 20 python mini-projects!
   * requirements: django, pillow
   * while doing this i practiced the following things:
      * making the right settings to upload media files onto the server
-     * here i made my own template using bootstrap
+     * here i made my own templates using bootstrap
   * the application is not finished!
