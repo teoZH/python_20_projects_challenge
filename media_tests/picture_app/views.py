@@ -35,7 +35,7 @@ def delete(request, car_id):
     else:
         form = CarsForm(instance=car)
         for f in form.fields:
-            form.fields[f].disabled=True
+            form.fields[f].disabled = True
     context = {
         'form': form
     }
@@ -43,4 +43,20 @@ def delete(request, car_id):
 
 
 def details(request, car_id):
-    return render(request, 'details.html')
+    car = get_object_or_404(Cars, pk=car_id)
+    return render(request, 'details.html', {'car': car})
+
+
+def update(request, car_id):
+    car = get_object_or_404(Cars, pk=car_id)
+    if request.method == "POST":
+        form = CarsForm(request.POST, request.FILES, instance=car)
+        if form.is_valid():
+            form.save()
+            return redirect('details', car_id)
+    else:
+        form = CarsForm(instance=car)
+    context = {
+        'form': form
+    }
+    return render(request, 'update.html', context)
