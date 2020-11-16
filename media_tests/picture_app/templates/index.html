@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% if cars %}
+<div class="container-fluid m-3">
+    <div class="row">
+        {% for car in cars %}
+
+        <div class="cols-4 m-3">
+            <div class="container p-4  shadow-lg p-3 mb-5 bg-white rounded bg-light">
+                <h3 style="text-align: center"><a href="{% url 'details' car.id %}" style="text-align: center;">{{ car.model }} </a></h3>
+                <img src="{{ car.image.url }}" style="height:200px;"><br>
+                <p>Price: {{ car.price }}</p>
+                <div class="d-flex justify-content-end">
+                    <a href="{% url 'details' car.id %}"><button type="button" class="btn m-1 rounded btn-primary">Details</button></a>
+                    <a href="{% url 'delete' car.id %}"><button type="button" class="btn m-1 rounded btn-danger">Delete</button></a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% else %}
+    <h1 style="text-align:center;">No cars available!</h1>
+{% endif %}
+{% endblock %}
